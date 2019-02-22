@@ -9,6 +9,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Tooltip from "tooltip.js";
+
 Vue.component('carousel', require('./components/Carousel.vue').default);
 
 /**
@@ -17,6 +19,28 @@ Vue.component('carousel', require('./components/Carousel.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.directive('tooltip', {
+    bind(element, bindings) {
+        new Tooltip(element, {
+            placement: bindings.arg,
+            title: bindings.value
+        });;
+    }
+});
+
 const app = new Vue({
     el: '#app'
+});
+
+const tooltips = new Vue({
+    el: '#tooltips',
+
+    mounted() {
+        document.querySelectorAll('[data-tooltip]').forEach(element => {
+            new Tooltip(element, {
+                placement: element.dataset.tooltipplacement,
+                title: element.dataset.tooltip
+            });
+        });
+    }
 });

@@ -6,7 +6,7 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 
 
 body {
@@ -16,4 +16,11 @@ body {
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.tooltip {
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
 }

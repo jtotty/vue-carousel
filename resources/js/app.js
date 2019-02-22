@@ -5,13 +5,15 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
 window.Vue = require('vue');
 
-import Tooltip from "tooltip.js";
+import PopperTooltip from "tooltip.js";
 
 Vue.component('carousel', require('./components/Carousel.vue').default);
+Vue.component('tooltip', require('./components/Tooltip.vue').default);
+Vue.component('render-component', require('./components/RenderComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -21,7 +23,7 @@ Vue.component('carousel', require('./components/Carousel.vue').default);
 
 Vue.directive('tooltip', {
     bind(element, bindings) {
-        new Tooltip(element, {
+        new PopperTooltip(element, {
             placement: bindings.arg,
             title: bindings.value
         });;
@@ -37,10 +39,14 @@ const tooltips = new Vue({
 
     mounted() {
         document.querySelectorAll('[data-tooltip]').forEach(element => {
-            new Tooltip(element, {
+            new PopperTooltip(element, {
                 placement: element.dataset.tooltipplacement,
                 title: element.dataset.tooltip
             });
         });
     }
+});
+
+const renderComponent = new Vue({
+    el: '#render'
 });

@@ -35,10 +35,15 @@
             <h2>Option #3</h2>
             <p>Hello there, <span data-tooltip-name="our-products-tooltip">learn about our products.</span>.</p>
 
-            <tooltip name="our-products-tooltip">
+            <tooltip name="our-products-tooltip" placement="right" offset="-200, 20">
                 <h1>Our Products</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum assumenda a nam voluptas maiores voluptatem consequatur repellendus perferendis ut quam. Consequatur, esse? Eius necessitatibus sunt repellat quos fugit praesentium eum?</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
             </tooltip>
+        </div>
+
+        <h1>Render Functions</h1>
+        <div id="render">
+            <render-component></render-component>
         </div>
 
         <!-- Flickity Library JS -->
